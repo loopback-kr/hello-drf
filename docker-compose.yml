@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  drf:
+    container_name: DRF
+    build:
+      context: ${PWD}
+      dockerfile: Dockerfile
+    hostname: DRF
+    tty: true
+    stdin_open: true
+    ports:
+      - 6789:8000
+    volumes:
+      - ${PWD}:/workspace
+    environment:
+      - TZ=Asia/Seoul
+    # command: gunicorn WebApp.wsgi:application --bind 0.0.0.0:8000
